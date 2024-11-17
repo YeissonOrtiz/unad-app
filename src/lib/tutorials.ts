@@ -25,7 +25,7 @@ export async function getTutorial(slug: string) {
   };
 }
 
-export function getAllTutorialSlugs() {
+export async function getAllTutorialSlugs() {
   const fileNames = fs.readdirSync(tutorialsDirectory);
   return fileNames.map((fileName) => ({
     slug: fileName.replace(/\.md$/, ''),
