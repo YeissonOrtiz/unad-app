@@ -2,17 +2,13 @@
 
 import { getTutorial, getAllTutorialSlugs } from '../../../lib/tutorials';
 
-interface Props {
-  params: { slug: string };
-}
-
 export async function generateStaticParams() {
   const slugs = await getAllTutorialSlugs();
-  return slugs.map((slug) => ({ slug: slug.slug }));
+  return slugs.map((slug) => ({ params: { slug: slug.slug } }));
 }
 
-export default async function TutorialPage({params}: Props) {
-  const { slug } = await params;
+export default async function TutorialPage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
   const tutorial = await getTutorial(slug);
 
   return (
