@@ -7,8 +7,8 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ params: { slug: slug.slug } }));
 }
 
-export default async function TutorialPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default async function TutorialPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const tutorial = await getTutorial(slug);
 
   return (
