@@ -1,5 +1,3 @@
-// app/tutorials/[slug]/page.tsx
-
 import { getTutorial, getAllTutorialSlugs } from '../../../lib/tutorials';
 
 export async function generateStaticParams() {

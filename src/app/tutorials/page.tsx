@@ -1,4 +1,3 @@
-// app/tutorials/page.tsx
 'use client';
 
 import { useContext, useState } from 'react';
